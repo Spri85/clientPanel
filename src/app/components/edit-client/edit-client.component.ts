@@ -37,7 +37,7 @@ export class EditClientComponent implements OnInit, OnDestroy {
     // Get ID
     this.id = this.route.snapshot.params['id'];
 
-    this.disableBalanceOnEdit = this.settingsService.getSettings().disableBalanceOnEddit;
+    this.disableBalanceOnEdit = this.settingsService.getSettings().disableBalanceOnEdit;
 
     // Get Client
     this.clientSub = this.clientService.getClient(this.id)
