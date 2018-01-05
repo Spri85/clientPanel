@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col">
+    <a routerLink="/" class="btn tbn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back To Dashboard</a>
+  </div>
+  <div class="col">
+
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Add Client
+  </div>
+  <div class="card-body">
+    <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="form-group">
+        <label for="addClientFirstName">First Name</label>
+        <input type="text" id="addClientFirstName" class="form-control" [(ngModel)]="client.firstName" name="firstName" #clientFirstName="ngModel"
+          minlength="2" required>
+        <div *ngIf="clientFirstName.errors?.required && clientFirstName.touched" class="alert alert-danger">
+          First Name is required
+        </div>
+        <div *ngIf="clientFirstName.errors?.minlength && clientFirstName.touched" class="alert alert-danger">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="addClientLastName">Last Name</label>
+        <input type="text" id="addClientLastName" class="form-control" [(ngModel)]="client.lastName" name="lastName" #clientLastName="ngModel"
+          minlength="2" required>
+        <div *ngIf="clientLastName.errors?.required && clientLastName.touched" class="alert alert-danger">
+          Last Name is required
+        </div>
+        <div *ngIf="clientLastName.errors?.minlength && clientLastName.touched" class="alert alert-danger">
+          Must be at least 2 characters
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="addClientEmail">Email</label>
+        <input type="email" id="addClientEmail" class="form-control" [(ngModel)]="client.email" name="email" #clientEmail="ngModel"
+          required>
+        <div *ngIf="clientEmail.errors?.required && clientEmail.touched" class="alert alert-danger">
+          Email is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="addClientPhone">Phone</label>
+        <input type="text" id="addClientPhone" class="form-control" [(ngModel)]="client.phone" name="phone" #clientPhone="ngModel"
+          minlength="10">
+        <div *ngIf="clientPhone.errors?.minlength && clientPhone.touched" class="alert alert-danger">
+          Add a valid phone number
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="addClientBalance">Balance</label>
+        <input type="number" id="addClientBalance" class="form-control" [(ngModel)]="client.balance" name="balance" #clientBalance="ngModel"
+         [disabled]="disableBalanceOnAdd">
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-primary btn-block">
+    </form>
+  </div>
+</div>
