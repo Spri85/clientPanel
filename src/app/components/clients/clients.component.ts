@@ -27,7 +27,7 @@ export class ClientsComponent implements OnInit, OnDestroy {
   private getTotalOwed() {
     let total = 0;
     for (let i = 0; i < this.clients.length; i++) {
-      total += this.clients[i].balance;
+      total += Number(this.clients[i].balance);
     }
     this.totalOwed = total;
   }
